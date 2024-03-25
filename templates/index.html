@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>check_log</title>
+    <h1>index</h1>
+    <h1>add a url to monitor or check the current ones</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Buttons to redirect -->
+    <button
+      onclick="window.location.href='/display_all_logs'"
+      class="redirect-button"
+    >
+      Display all logs
+    </button>
+    <button
+      onclick="window.location.href='/display_error_logs'"
+      class="redirect-button"
+    >
+      Display error logs
+    </button>
+    <!-- add an url -->
+    <h2>Enter URL:</h2>
+    <form id="url">
+      <label for="url_input">URL: http://</label>
+      <input type="text" id="url_input" name="url" /><br />
+      <input type="button" value="Submit" onclick="submitForm()" />
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+      function submitForm() {
+        var url = $("#url_input").val();
+        $.ajax({
+          type: "POST",
+          url: "/add_url", // Your server route to handle URL addition
+          data: { url: url },
+          success: function (response) {
+            $("#message").text(response);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Logs</title>
+  </head>
+  <body>
+    <h1>Logs</h1>
+    <h2>Sites</h2>
+    <ul>
+      {% for site_name, site_data in logs.items() %}
+      <li>
+        <h3>{{ site_name }}</h3>
+        <ul>
+          {% for index in range(site_data.status|length) %} {% if
+          site_data.status[index] != "200" %}
+          <li>
+            Status: {{ site_data.status[index] }}, Time: {{
+            site_data.time_test[index] }}
+          </li>
+          {% endif %} {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Logs</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Logs</h1>
+    {% for site_key, site_data in logs.items() %}
+    <h2>{{ site_key }}</h2>
+    <ul>
+      {% for index in range(site_data.status|length) %} {% if
+      site_data.status[index] != "200" %}
+      <li class="red">
+        Status: {{ site_data.status[index] }}, Time: {{
+        site_data.time_test[index] }}
+      </li>
+      {% else %}
+      <li>
+        Status: {{ site_data.status[index] }}, Time: {{
+        site_data.time_test[index] }}
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
+    {% endfor %}
+  </body>
+</html>

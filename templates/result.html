@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>result</h1>
+    <div id="result">
+      <p>
+        for {{ url_site_1 }} at {{ temps }} the status is {{ status_site_1 }} "
+      </p>
+      <p>
+        for {{ url_site_2 }} at {{ temps }} the status is {{ status_site_2 }} "
+      </p>
+    </div>
+    <!-- Buttons to redirect -->
+    <button
+      onclick="window.location.href='/display_all_logs'"
+      class="redirect-button"
+    >
+      Display all logs
+    </button>
+
+    <button
+      onclick="window.location.href='/display_error_logs'"
+      class="redirect-button"
+    >
+      Display error logs
+    </button>
+  </body>
+</html>
